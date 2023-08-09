@@ -44,6 +44,7 @@ crear_usuario_interactivo() {
 # 3. Función para crear usuario con contraseña interactivo
 crear_usuario_con_contrasena_interactivo() {
  
+ 
     read -p "Escribe el nombre del usuario: " nombre_usuario
     # -s esconde lo que se escribe -p permite mostrar el mensaje antes de que se introduzca por teclado
     read -s -p "Escribe la contraseña para $nombre_usuario: " password
@@ -57,9 +58,9 @@ crear_usuario_con_contrasena_interactivo() {
     imprimir_separador
     echo "Contraseña cifrada en SHA-512 en /etc/shadow:"
     # Busca el nombre de usuario en /etc/shadow
-    grep "^$username:" /etc/shadow
+    grep "^$nombre_usuario:" /etc/shadow
     imprimir_separador
-    id nombre_usuario
+    id $nombre_usuario
 }
 
 # 4. y 9. Función para crear usuario con shell personalizado interactivo
